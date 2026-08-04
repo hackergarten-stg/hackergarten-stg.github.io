@@ -1,0 +1,133 @@
+---
+import LangSwitcher from './LangSwitcher.astro';
+import { t } from '../i18n/ui';
+
+interface Props {
+  lang: 'de' | 'en';
+}
+
+const { lang } = Astro.props;
+const meetupUrl = 'https://www.meetup.com/hackergarten-stuttgart/';
+const hackergartenUrl = 'https://hackergarten.net';
+---
+
+<header class="header">
+  <LangSwitcher lang={lang} />
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-brand">
+      <svg class="patch-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="3" />
+        <path d="M20 6v28M6 20h28" />
+      </svg>
+      <h1 class="brand">Hackergarten Stuttgart</h1>
+    </div>
+    <div class="hero-content">
+      <p class="headline">{t(lang, 'hero.headline')}</p>
+      <p class="subline">{t(lang, 'hero.subline')}</p>
+      <a href={meetupUrl} class="cta" target="_blank" rel="noopener noreferrer">
+        {t(lang, 'hero.cta')} →
+      </a>
+    </div>
+  </section>
+
+  <section class="section about">
+    <h2 class="section-title">{t(lang, 'about.title')}</h2>
+    <p>{t(lang, 'about.p1')}</p>
+    <p>{t(lang, 'about.p2')}</p>
+    <p>{t(lang, 'about.p3')}</p>
+    <p>{t(lang, 'about.p4')}</p>
+    <p class="hackergarten-link">
+      {t(lang, 'about.link')} <a href={hackergartenUrl} target="_blank" rel="noopener noreferrer">hackergarten.net</a>
+    </p>
+  </section>
+
+  <section class="section practical">
+    <h2 class="section-title">{t(lang, 'practical.title')}</h2>
+    <ul class="practical-list">
+      <li>{t(lang, 'practical.when')}</li>
+      <li>{t(lang, 'practical.where')}</li>
+      <li>{t(lang, 'practical.bring')}</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>{t(lang, 'footer.hosted')} <a href="https://www.codecentric.de/standorte/stuttgart" target="_blank" rel="noopener noreferrer">codecentric AG</a></p>
+</footer>
+
+<style>
+  .header {
+    display: flex;
+    justify-content: flex-end;
+    padding: var(--space-sm) var(--space-md);
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+  
+  .hero {
+    padding: var(--space-2xl) var(--space-md);
+    max-width: 48rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .hero-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .headline {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    color: var(--soil);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .subline {
+    font-size: var(--text-lg);
+    color: var(--leaf);
+    margin-bottom: var(--space-lg);
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .about {
+    background: var(--paper);
+  }
+  
+  .hackergarten-link {
+    margin-top: var(--space-md);
+    font-style: italic;
+  }
+  
+  .practical {
+    background: linear-gradient(180deg, var(--paper) 0%, var(--lichen) 100%);
+  }
+  
+  @media (max-width: 640px) {
+    .hero {
+      padding: var(--space-xl) var(--space-md);
+    }
+    
+    .headline {
+      font-size: var(--text-xl);
+    }
+    
+    .subline {
+      font-size: var(--text-base);
+    }
+    
+    .hero-brand {
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+  }
+</style>

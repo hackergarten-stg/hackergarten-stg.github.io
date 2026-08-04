@@ -1,0 +1,59 @@
+---
+import { t, getLocalePath } from '../i18n/ui';
+
+interface Props {
+  lang: 'de' | 'en';
+}
+
+const { lang } = Astro.props;
+---
+
+<nav class="lang-switcher">
+  <a 
+    href={getLocalePath('de')} 
+    class:list={['lang-link', { active: lang === 'de' }]}
+    aria-current={lang === 'de' ? 'page' : undefined}
+  >
+    {t(lang, 'nav.de')}
+  </a>
+  <span class="separator">/</span>
+  <a 
+    href={getLocalePath('en', '/')} 
+    class:list={['lang-link', { active: lang === 'en' }]}
+    aria-current={lang === 'en' ? 'page' : undefined}
+  >
+    {t(lang, 'nav.en')}
+  </a>
+</nav>
+
+<style>
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+  }
+  
+  .lang-link {
+    color: var(--leaf);
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 2px;
+    transition: color 0.2s ease;
+  }
+  
+  .lang-link:hover {
+    color: var(--soil);
+  }
+  
+  .lang-link.active {
+    color: var(--soil);
+    font-weight: 600;
+  }
+  
+  .separator {
+    color: var(--leaf);
+    opacity: 0.5;
+  }
+</style>
