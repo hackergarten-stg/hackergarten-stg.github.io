@@ -1,0 +1,74 @@
+---
+import { communityLinks } from '../../config/site';
+import { t, type Lang } from '../../i18n/ui';
+import FooterBrand from './FooterBrand.astro';
+import FooterColumn from './FooterColumn.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="columns">
+    <FooterBrand lang={lang} />
+
+    <FooterColumn title={t(lang, 'footer.whenWhere')}>
+      <span>{t(lang, 'footer.when')}</span>
+      <span class="muted">
+        {t(lang, 'footer.venueName')}<br />{t(lang, 'footer.venueAddress')}
+      </span>
+    </FooterColumn>
+
+    <FooterColumn title={t(lang, 'footer.community')}>
+      {
+        communityLinks.map(({ href, label }) => (
+          <a href={href} target="_blank" rel="noopener noreferrer">
+            {label}
+          </a>
+        ))
+      }
+    </FooterColumn>
+  </div>
+
+  <div class="baseline">
+    <span class="copyright">
+      © {year} Hackergarten Stuttgart · {t(lang, 'footer.bring')}
+    </span>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--line);
+    background: var(--surface-2);
+  }
+
+  .columns {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 56px var(--pad-x) 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+  }
+
+  .baseline {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 0 var(--pad-x) 40px;
+  }
+
+  .copyright {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    color: var(--muted);
+  }
+
+  .muted {
+    color: var(--muted);
+  }
+</style>

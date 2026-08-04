@@ -1,0 +1,24 @@
+---
+import Eyebrow from '../ui/Eyebrow.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="column">
+  <Eyebrow tone="muted" size="xs" as="span">{title}</Eyebrow>
+  <slot />
+</div>
+
+<style>
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: var(--fs-base);
+    line-height: 1.6;
+  }
+</style>

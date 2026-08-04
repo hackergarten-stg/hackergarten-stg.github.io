@@ -1,0 +1,41 @@
+---
+import Card from '../ui/Card.astro';
+
+interface Props {
+  number: string;
+  title: string;
+  body: string;
+}
+
+const { number, title, body } = Astro.props;
+---
+
+<Card>
+  <span class="number">{number}</span>
+  <h3 class="title">{title}</h3>
+  <p class="body">{body}</p>
+</Card>
+
+<style>
+  .number {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--tracking-mono);
+    color: var(--accent);
+  }
+
+  .title {
+    margin: 0;
+    font-size: var(--fs-2xl);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+  }
+
+  .body {
+    margin: 0;
+    font-size: var(--fs-md);
+    line-height: 1.65;
+    color: var(--muted);
+    text-wrap: pretty;
+  }
+</style>

@@ -1,8 +1,14 @@
 ---
+import Hero from '../../components/sections/Hero.astro';
+import Sponsors from '../../components/sections/Sponsors.astro';
+import Steps from '../../components/sections/Steps.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import LandingPage from '../../components/LandingPage.astro';
+
+const lang = 'en';
 ---
 
-<BaseLayout lang="en">
-  <LandingPage lang="en" />
+<BaseLayout lang={lang}>
+  <Hero lang={lang} />
+  <Steps lang={lang} />
+  <Sponsors lang={lang} />
 </BaseLayout>

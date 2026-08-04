@@ -1,6 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
+import tailwindcss from '@tailwindcss/vite';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://hackergarten-stg.github.io',
@@ -10,5 +12,9 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: false
     }
+  },
+
+  vite: {
+    plugins: [tailwindcss()]
   }
 });

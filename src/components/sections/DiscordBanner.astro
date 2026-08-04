@@ -1,0 +1,41 @@
+---
+import { links } from '../../config/site';
+import { t, type Lang } from '../../i18n/ui';
+import Button from '../ui/Button.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<div class="banner">
+  <p class="body">{t(lang, 'discord.body')}</p>
+  <Button href={links.discord} variant="outline">
+    {t(lang, 'discord.cta')}
+  </Button>
+</div>
+
+<style>
+  .banner {
+    margin-top: var(--grid-gap);
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    padding: 22px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .body {
+    margin: 0;
+    font-size: var(--fs-md);
+    line-height: 1.6;
+    max-width: 62ch;
+    text-wrap: pretty;
+  }
+</style>

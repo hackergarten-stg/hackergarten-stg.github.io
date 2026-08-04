@@ -1,0 +1,41 @@
+---
+import { sponsors } from '../../config/site';
+import { t, type Lang } from '../../i18n/ui';
+import Section from '../ui/Section.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import SponsorCard from './SponsorCard.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<Section bordered>
+  <SectionHeading
+    eyebrow={t(lang, 'sponsors.eyebrow')}
+    title={t(lang, 'sponsors.title')}
+    size="sm"
+  />
+  <div class="grid">
+    {
+      sponsors.map(({ href, nameKey, descKey, logo }) => (
+        <SponsorCard
+          href={href}
+          name={t(lang, nameKey)}
+          description={t(lang, descKey)}
+          logo={logo}
+        />
+      ))
+    }
+  </div>
+</Section>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--grid-gap);
+  }
+</style>

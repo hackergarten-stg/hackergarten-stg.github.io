@@ -1,0 +1,56 @@
+---
+import { navRoutes } from '../../config/site';
+import { getLocalePath, t, type Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  route: string;
+}
+
+const { lang, route } = Astro.props;
+---
+
+<nav class="nav">
+  {
+    navRoutes.map(({ path, labelKey }) => {
+      const active = route === path;
+      return (
+        <a
+          href={getLocalePath(lang, path)}
+          class:list={['link', { active }]}
+          aria-current={active ? 'page' : undefined}
+        >
+          {t(lang, labelKey)}
+        </a>
+      );
+    })
+  }
+</nav>
+
+<style>
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: var(--fs-base);
+    font-weight: 500;
+  }
+
+  .link {
+    color: var(--muted);
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s ease;
+  }
+
+  .link:hover {
+    color: var(--fg);
+    text-decoration: none;
+  }
+
+  .active {
+    color: var(--fg);
+    border-bottom-color: var(--accent);
+  }
+</style>

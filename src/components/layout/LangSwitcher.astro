@@ -1,0 +1,64 @@
+---
+import { getLocalePath, languages, t, type Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  route: string;
+}
+
+const { lang, route } = Astro.props;
+
+const options = (Object.keys(languages) as Lang[]).map((code) => ({
+  code,
+  href: getLocalePath(code, route),
+  label: t(lang, code === 'de' ? 'nav.de' : 'nav.en'),
+  title: languages[code],
+}));
+---
+
+<div class="switcher">
+  {
+    options.map(({ code, href, label, title }) => (
+      <a
+        href={href}
+        class:list={['option', { active: code === lang }]}
+        title={title}
+        hreflang={code}
+        aria-current={code === lang ? 'true' : undefined}
+      >
+        {label}
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .switcher {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+  }
+
+  .option {
+    padding: 6px 9px;
+    color: var(--muted);
+    text-decoration: none;
+    transition:
+      color 0.15s ease,
+      background 0.15s ease;
+  }
+
+  .option:hover {
+    color: var(--fg);
+    text-decoration: none;
+  }
+
+  .active {
+    background: var(--surface-2);
+    color: var(--fg);
+  }
+</style>

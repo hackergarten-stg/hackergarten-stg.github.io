@@ -1,0 +1,63 @@
+---
+import { t, type Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const label = t(lang, 'theme.toggle');
+---
+
+<button
+  type="button"
+  class="toggle"
+  data-theme-toggle
+  aria-label={label}
+  title={label}
+>
+  <span data-theme-icon aria-hidden="true">☾</span>
+</button>
+
+<style>
+  .toggle {
+    width: 34px;
+    height: 32px;
+    flex-shrink: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--fg);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    font-size: var(--fs-base);
+    line-height: 1;
+    transition: border-color 0.15s ease;
+  }
+
+  .toggle:hover {
+    border-color: var(--accent);
+  }
+</style>
+
+<script>
+  const root = document.documentElement;
+  const button = document.querySelector<HTMLButtonElement>(
+    '[data-theme-toggle]',
+  );
+  const icon = document.querySelector<HTMLElement>('[data-theme-icon]');
+
+  function paint(theme: string) {
+    root.dataset.theme = theme;
+    if (icon) icon.textContent = theme === 'dark' ? '☀' : '☾';
+  }
+
+  paint(root.dataset.theme ?? 'light');
+
+  button?.addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', next);
+    paint(next);
+  });
+</script>

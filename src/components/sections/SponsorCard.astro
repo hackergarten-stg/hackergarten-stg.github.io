@@ -1,0 +1,40 @@
+---
+import Card from '../ui/Card.astro';
+import LogoPlaceholder from '../ui/LogoPlaceholder.astro';
+
+interface Props {
+  href: string;
+  name: string;
+  description: string;
+  logo?: string;
+}
+
+const { href, name, description, logo } = Astro.props;
+---
+
+<Card as="a" href={href} interactive shadow={false} padding="24px" gap="18px">
+  <LogoPlaceholder label={name} src={logo} />
+  <div class="text">
+    <span class="name">{name}</span>
+    <span class="description">{description}</span>
+  </div>
+</Card>
+
+<style>
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .name {
+    font-size: var(--fs-lg);
+    font-weight: 600;
+  }
+
+  .description {
+    font-size: var(--fs-base);
+    line-height: 1.55;
+    color: var(--muted);
+  }
+</style>

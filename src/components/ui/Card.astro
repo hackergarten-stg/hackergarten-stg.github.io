@@ -1,0 +1,66 @@
+---
+interface Props {
+  as?: 'article' | 'a' | 'div';
+  href?: string;
+  interactive?: boolean;
+  shadow?: boolean;
+  padding?: string;
+  gap?: string;
+  external?: boolean;
+}
+
+const {
+  as: Tag = 'article',
+  href,
+  interactive = false,
+  shadow = true,
+  padding = '28px',
+  gap = '14px',
+  external = true,
+} = Astro.props;
+
+const isLink = Tag === 'a';
+---
+
+<Tag
+  href={isLink ? href : undefined}
+  target={isLink && external ? '_blank' : undefined}
+  rel={isLink && external ? 'noopener noreferrer' : undefined}
+  class:list={['card', { interactive, shadow, link: isLink }]}
+  style={`--card-padding: ${padding}; --card-gap: ${gap};`}
+>
+  <slot />
+</Tag>
+
+<style>
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+    padding: var(--card-padding);
+    display: flex;
+    flex-direction: column;
+    gap: var(--card-gap);
+  }
+
+  .shadow {
+    box-shadow: var(--shadow);
+  }
+
+  .link {
+    color: var(--fg);
+    text-decoration: none;
+  }
+
+  .link:hover {
+    text-decoration: none;
+  }
+
+  .interactive {
+    transition: border-color 0.15s ease;
+  }
+
+  .interactive:hover {
+    border-color: var(--accent);
+  }
+</style>

@@ -1,0 +1,35 @@
+---
+interface Props {
+  tone?: 'accent' | 'muted';
+  size?: 'sm' | 'xs';
+  as?: 'p' | 'span';
+}
+
+const { tone = 'accent', size = 'sm', as: Tag = 'p' } = Astro.props;
+---
+
+<Tag class:list={['eyebrow', tone, size]}><slot /></Tag>
+
+<style>
+  .eyebrow {
+    font-family: var(--font-mono);
+    letter-spacing: var(--tracking-mono);
+    text-transform: uppercase;
+  }
+
+  .sm {
+    font-size: var(--fs-sm);
+  }
+
+  .xs {
+    font-size: var(--fs-xs);
+  }
+
+  .accent {
+    color: var(--accent);
+  }
+
+  .muted {
+    color: var(--muted);
+  }
+</style>

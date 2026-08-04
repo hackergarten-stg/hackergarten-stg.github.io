@@ -1,0 +1,76 @@
+---
+import Eyebrow from './Eyebrow.astro';
+
+interface Props {
+  title: string;
+  intro?: string;
+  eyebrow?: string;
+  eyebrowTone?: 'accent' | 'muted';
+  size?: 'lg' | 'sm';
+  as?: 'h1' | 'h2';
+}
+
+const {
+  title,
+  intro,
+  eyebrow,
+  eyebrowTone = 'muted',
+  size = 'lg',
+  as: Heading = 'h2',
+} = Astro.props;
+---
+
+{eyebrow && <Eyebrow tone={eyebrowTone}>{eyebrow}</Eyebrow>}
+
+<div
+  class:list={[
+    'heading-row',
+    { split: Boolean(intro), spaced: Boolean(eyebrow) },
+  ]}
+>
+  <Heading class:list={['title', size]}>{title}</Heading>
+  {intro && <p class="intro">{intro}</p>}
+</div>
+
+<style>
+  .heading-row {
+    margin-bottom: 40px;
+  }
+
+  .spaced {
+    margin-top: 12px;
+  }
+
+  .split {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-bottom: 44px;
+  }
+
+  .title {
+    margin: 0;
+    line-height: 1.12;
+  }
+
+  .lg {
+    font-size: var(--fs-h2);
+    max-width: 22ch;
+  }
+
+  .sm {
+    font-size: var(--fs-h2-sm);
+    line-height: 1.15;
+  }
+
+  .intro {
+    margin: 0;
+    font-size: var(--fs-lg);
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: 34ch;
+    text-wrap: pretty;
+  }
+</style>

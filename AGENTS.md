@@ -8,6 +8,27 @@ astro dev --background
 
 Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
 
+## Routing & i18n
+
+- **URLs are always in English**, in every language. Use `/projects`, never `/projekte` — only the
+  visible labels are translated (via `src/i18n/ui.ts`).
+- German is the default locale and is served unprefixed (`/projects`); English lives under `/en/`
+  (`/en/projects`). See `getLocalePath()` and `stripLocale()` in `src/i18n/ui.ts`.
+- **Every page must exist in both languages**: adding `src/pages/foo.astro` means also adding
+  `src/pages/en/foo.astro`.
+- Add new routes to `navRoutes` in `src/config/site.ts` — the header nav and its active state are
+  generated from it. All external URLs belong in `links` in the same file, never inline in a component.
+
+## Structure
+
+- `src/styles/` — `global.css` is the only entry point; it imports `tokens.css` (all design constants
+  and the `[data-theme="dark"]` overrides), `reset.css` and `base.css`. Component CSS lives in each
+  component's scoped `<style>` block and must reference tokens rather than literal colors or sizes.
+- `src/components/ui/` — reusable, content-free primitives (`Section`, `Card`, `Button`, `Eyebrow`,
+  `SectionHeading`, `LogoPlaceholder`).
+- `src/components/layout/` — page chrome (`Header`, `Footer` and their parts).
+- `src/components/sections/` — the content bands composed from the primitives.
+
 ## Documentation
 
 Full documentation: https://docs.astro.build

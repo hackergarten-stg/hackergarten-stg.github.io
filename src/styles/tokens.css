@@ -1,0 +1,62 @@
+:root {
+  --bg: #fbfaf6;
+  --surface: #ffffff;
+  --surface-2: #f4f2ec;
+  --fg: #1a1a17;
+  --muted: #6d6c63;
+  --line: #e4e1d8;
+  --accent: oklch(0.52 0.11 152);
+  --accent-soft: oklch(0.95 0.03 152);
+  --shadow:
+    0 1px 2px rgba(26, 26, 23, 0.05), 0 8px 24px -12px rgba(26, 26, 23, 0.12);
+  --sponsor-filter: grayscale(1);
+  color-scheme: light;
+
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --fs-xs: 12px;
+  --fs-sm: 13px;
+  --fs-base: 14px;
+  --fs-md: 15px;
+  --fs-lg: 16px;
+  --fs-xl: 19px;
+  --fs-2xl: 21px;
+  --fs-h1: clamp(40px, 6vw, 68px);
+  --fs-h2: clamp(28px, 3.4vw, 40px);
+  --fs-h2-sm: clamp(26px, 3vw, 34px);
+
+  --content-max: 1140px;
+  --pad-x: 32px;
+  --section-y: 80px;
+  --section-y-lg: 96px;
+  --grid-gap: 20px;
+
+  --radius-card: 16px;
+  --radius-btn: 10px;
+  --radius-sm: 8px;
+
+  --tracking-mono: 0.08em;
+}
+
+[data-theme="dark"] {
+  --bg: #121311;
+  --surface: #1a1c19;
+  --surface-2: #212420;
+  --fg: #ecebe5;
+  --muted: #9b9b92;
+  --line: #2c2f2b;
+  --accent: oklch(0.76 0.13 152);
+  --accent-soft: oklch(0.3 0.05 152);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  color-scheme: dark;
+}
+
+@media (max-width: 700px) {
+  :root {
+    --pad-x: 20px;
+    --section-y: 56px;
+    --section-y-lg: 64px;
+    --grid-gap: 16px;
+  }
+}

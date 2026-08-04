@@ -1,0 +1,48 @@
+---
+interface Props {
+  background?: 'base' | 'surface-2';
+  bordered?: boolean;
+  size?: 'default' | 'lg';
+  id?: string;
+}
+
+const {
+  background = 'base',
+  bordered = false,
+  size = 'default',
+  id,
+} = Astro.props;
+---
+
+<section
+  id={id}
+  class:list={['band', `bg-${background}`, { bordered }]}
+>
+  <div class:list={['inner', `size-${size}`]}>
+    <slot />
+  </div>
+</section>
+
+<style>
+  .band {
+    background: var(--bg);
+  }
+
+  .bg-surface-2 {
+    background: var(--surface-2);
+  }
+
+  .bordered {
+    border-top: 1px solid var(--line);
+  }
+
+  .inner {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: var(--section-y) var(--pad-x) calc(var(--section-y) + 8px);
+  }
+
+  .size-lg {
+    padding: var(--section-y-lg) var(--pad-x) calc(var(--section-y-lg) - 8px);
+  }
+</style>

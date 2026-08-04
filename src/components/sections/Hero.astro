@@ -1,0 +1,55 @@
+---
+import { links } from '../../config/site';
+import { t, type Lang } from '../../i18n/ui';
+import Button from '../ui/Button.astro';
+import Eyebrow from '../ui/Eyebrow.astro';
+import Section from '../ui/Section.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<Section size="lg">
+  <Eyebrow>{t(lang, 'hero.eyebrow')}</Eyebrow>
+  <h1 class="title">{t(lang, 'hero.title')}</h1>
+  <p class="subline">{t(lang, 'hero.subline')}</p>
+  <div class="actions">
+    <Button href={links.meetup}>{t(lang, 'hero.cta')}</Button>
+    <span class="meta">{t(lang, 'hero.meta')}</span>
+  </div>
+</Section>
+
+<style>
+  .title {
+    margin: 20px 0 24px;
+    font-size: var(--fs-h1);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    max-width: 16ch;
+  }
+
+  .subline {
+    margin: 0 0 36px;
+    font-size: var(--fs-xl);
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: 54ch;
+    text-wrap: pretty;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .meta {
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    color: var(--muted);
+  }
+</style>

@@ -1,68 +1,165 @@
 export const languages = {
-  de: 'Deutsch',
-  en: 'English',
+  de: "Deutsch",
+  en: "English",
 } as const;
 
-export const defaultLang = 'de' as const;
+export const defaultLang = "de" as const;
 
 export const ui = {
   de: {
-    'site.title': 'Hackergarten Stuttgart',
-    'site.description': 'Jeden ersten Dienstag im Monat arbeiten wir gemeinsam an Open-Source-Projekten.',
-    'nav.de': 'DE',
-    'nav.en': 'EN',
-    'hero.headline': 'Jeden ersten Dienstag im Monat',
-    'hero.subline': 'Gemeinsam an Open-Source-Projekten arbeiten – mit Essen, Getränken und guter Gesellschaft. Bring deinen Laptop mit.',
-    'hero.cta': 'Zum Meetup',
-    'about.title': 'Was ist ein Hackergarten?',
-    'about.p1': 'Ein Hackergarten ist eine Mischung aus Softwarewerkstatt, Labor, Klassenzimmer, Spielplatz, geselliger Runde und Studio. Ziel ist es, Neues zu schaffen, Bestehendes zu erweitern, Fehler zu beheben, Dokumentationen oder Tutorials zu schreiben.',
-    'about.p2': 'Wir wollen etwas erarbeiten, was andere nutzen können – indem das Ergebnis am Ende als Patch, Contribution oder auf ähnlichem Wege einem Open-Source-Projekt zugeführt wird.',
-    'about.p3': 'Man lernt neue Leute kennen, bekommt Einblick in Projekte oder Technologien, kann Erfahrungen und Wissen austauschen. Dazu ist jeder willkommen. Egal, ob du studierst oder schon lange dabei bist – jeder kann etwas beitragen, sofern er bereit ist, einen Laptop und Zeit mitzubringen.',
-    'about.p4': 'Bringt Eure eigenen Ideen oder auch Probleme mit, und gemeinsam kann daraus etwas wachsen.',
-    'about.link': 'Siehe auch:',
-    'practical.title': 'Wann & Wo',
-    'practical.when': 'Jeden ersten Dienstag im Monat, ab 17:30 Uhr',
-    'practical.where': 'codecentric AG, Industriestraße 3, 70565 Stuttgart',
-    'practical.bring': 'Mitbringen: Laptop und Zeit',
-    'footer.hosted': 'Veranstaltet von',
+    "site.title": "Hackergarten Stuttgart",
+    "site.description":
+      "Jeden ersten Dienstag im Monat arbeiten wir gemeinsam an Open-Source-Projekten.",
+
+    "nav.de": "DE",
+    "nav.en": "EN",
+    "nav.home": "Home",
+    "nav.projects": "Projekte",
+    "nav.brand": "Hackergarten Stuttgart",
+    "theme.toggle": "Dark Mode umschalten",
+
+    "hero.eyebrow": "Jeden ersten Dienstag im Monat",
+    "hero.title": "Hackergarten Stuttgart",
+    "hero.subline":
+      "Gemeinsam an Open-Source-Projekten arbeiten – mit Essen, Getränken und guter Gesellschaft. Bring deinen Laptop mit.",
+    "hero.cta": "Zum Meetup",
+    "hero.meta": "ab 17:30 Uhr · codecentric AG, Industriestraße 3",
+
+    "steps.title": "In drei Schritten zu Open Source beitragen",
+    "steps.intro":
+      "Kein Vorwissen nötig. Ein Abend reicht, um den ersten Beitrag zu leisten.",
+    "steps.1.title":
+      "Bring eine Idee für ein Projekt mit – oder schließ dich anderen an",
+    "steps.1.body":
+      "Ein Bug, der dich nervt, eine fehlende Doku, ein eigenes Tool. Wenn du nichts dabei hast, stellen andere ihre Projekte vor.",
+    "steps.2.title": "Arbeite gemeinsam mit anderen an den Projekten",
+    "steps.2.body":
+      "In kleinen Gruppen, im Pair oder Mob. Erfahrene Contributor helfen beim Setup, beim Code und beim Reviewen.",
+    "steps.3.title": "Erstelle einen Pull Request in einem Open-Source-Projekt",
+    "steps.3.body":
+      "Patch, Doku oder Test – am Ende des Abends geht dein Beitrag zurück an das Projekt und ist für alle nutzbar.",
+
+    "discord.body":
+      "Die Gespräche gehen auf Discord weiter: Fragen zum Setup, offene Reviews und die nächsten Ideen – auch zwischen den Terminen.",
+    "discord.cta": "Discord beitreten",
+
+    "sponsors.eyebrow": "Unterstützt von",
+    "sponsors.title": "Ort, Verpflegung und Netzwerk",
+    "sponsors.codecentric.name": "codecentric AG",
+    "sponsors.codecentric.desc":
+      "Gastgeber und Veranstalter am Standort Stuttgart.",
+    "sponsors.wifo.name": "Wirtschaftsförderung Stuttgart",
+    "sponsors.wifo.desc": "Fördert die lokale Tech- und Open-Source-Community.",
+    "sponsors.hackergarten.name": "Hackergarten",
+    "sponsors.hackergarten.desc":
+      "Die weltweite Hackergarten-Organisation, hackergarten.net.",
+
+    "footer.madePrefix": "Made with",
+    "footer.madeSuffix": "in Stuttgart",
+    "footer.flag": "Deutschland",
+    "footer.tagline":
+      "Ein offenes Treffen für alle, die zu Open Source beitragen wollen.",
+    "footer.whenWhere": "Wann & Wo",
+    "footer.when": "Jeden ersten Dienstag im Monat, ab 17:30 Uhr",
+    "footer.venueName": "codecentric AG",
+    "footer.venueAddress": "Industriestraße 3, 70565 Stuttgart",
+    "footer.community": "Community",
+    "footer.bring": "Mitbringen: Laptop und Zeit",
+
+    "projects.title": "Projekte",
+    "projects.intro":
+      "Woran wir bei den letzten Treffen gearbeitet haben – von kleinen Patches bis zu eigenen Tools. Diese Übersicht wächst mit jedem Termin.",
   },
   en: {
-    'site.title': 'Hackergarten Stuttgart',
-    'site.description': 'On the first Tuesday of every month, we work together on open source projects.',
-    'nav.de': 'DE',
-    'nav.en': 'EN',
-    'hero.headline': 'First Tuesday of Every Month',
-    'hero.subline': 'Work together on open source projects – with food, drinks, and good company. Just bring your laptop.',
-    'hero.cta': 'Join on Meetup',
-    'about.title': 'What is a Hackergarten?',
-    'about.p1': 'Hackergarten is a crafter\'s workshop, classroom, a laboratory, a social circle, a writing group, a playground, and an artist\'s studio. Our goal is to create something that others can use; whether it be working software, improved documentation, or better educational materials.',
-    'about.p2': 'Our intent is to end each meeting with a patch or similar contribution submitted to an open and public project.',
-    'about.p3': 'You meet new people, gain insight into projects or technologies, and exchange experiences and knowledge. Everyone is welcome. Whether you\'re a student or a veteran – everyone can contribute, as long as they\'re willing to bring a laptop and some time.',
-    'about.p4': 'Bring your own ideas or problems, and together something can grow from them.',
-    'about.link': 'See also:',
-    'practical.title': 'When & Where',
-    'practical.when': 'First Tuesday of every month, from 5:30 PM',
-    'practical.where': 'codecentric AG, Industriestraße 3, 70565 Stuttgart',
-    'practical.bring': 'Bring: Laptop and time',
-    'footer.hosted': 'Hosted by',
+    "site.title": "Hackergarten Stuttgart",
+    "site.description":
+      "On the first Tuesday of every month, we work together on open source projects.",
+
+    "nav.de": "DE",
+    "nav.en": "EN",
+    "nav.home": "Home",
+    "nav.projects": "Projects",
+    "nav.brand": "Hackergarten Stuttgart",
+    "theme.toggle": "Toggle dark mode",
+
+    "hero.eyebrow": "First Tuesday of every month",
+    "hero.title": "Hackergarten Stuttgart",
+    "hero.subline":
+      "Work together on open source projects – with food, drinks, and good company. Just bring your laptop.",
+    "hero.cta": "Join on Meetup",
+    "hero.meta": "from 5:30 PM · codecentric AG, Industriestraße 3",
+
+    "steps.title": "Contribute to open source in three steps",
+    "steps.intro":
+      "No prior experience needed. One evening is enough to make your first contribution.",
+    "steps.1.title": "Bring an idea for a project – or join someone else's",
+    "steps.1.body":
+      "A bug that annoys you, missing documentation, a tool of your own. If you arrive empty-handed, others will present their projects.",
+    "steps.2.title": "Work on the projects together with others",
+    "steps.2.body":
+      "In small groups, pairing or mobbing. Experienced contributors help with the setup, the code and the reviews.",
+    "steps.3.title": "Open a pull request in an open source project",
+    "steps.3.body":
+      "A patch, documentation or a test – by the end of the evening your contribution goes back to the project for everyone to use.",
+
+    "discord.body":
+      "The conversation continues on Discord: setup questions, open reviews and the next ideas – also between meetups.",
+    "discord.cta": "Join Discord",
+
+    "sponsors.eyebrow": "Supported by",
+    "sponsors.title": "Venue, food and network",
+    "sponsors.codecentric.name": "codecentric AG",
+    "sponsors.codecentric.desc": "Host and organiser at the Stuttgart office.",
+    "sponsors.wifo.name": "Wirtschaftsförderung Stuttgart",
+    "sponsors.wifo.desc": "Supports the local tech and open source community.",
+    "sponsors.hackergarten.name": "Hackergarten",
+    "sponsors.hackergarten.desc":
+      "The worldwide Hackergarten organisation, hackergarten.net.",
+
+    "footer.madePrefix": "Made with",
+    "footer.madeSuffix": "in Stuttgart",
+    "footer.flag": "Germany",
+    "footer.tagline":
+      "An open meetup for everyone who wants to contribute to open source.",
+    "footer.whenWhere": "When & Where",
+    "footer.when": "First Tuesday of every month, from 5:30 PM",
+    "footer.venueName": "codecentric AG",
+    "footer.venueAddress": "Industriestraße 3, 70565 Stuttgart",
+    "footer.community": "Community",
+    "footer.bring": "Bring: laptop and time",
+
+    "projects.title": "Projects",
+    "projects.intro":
+      "What we worked on at recent meetups – from small patches to tools of our own. This overview grows with every session.",
   },
 } as const;
 
+export type Lang = keyof typeof ui;
 export type UIKey = keyof typeof ui.de;
 
-export function getLangFromUrl(url: URL): keyof typeof ui {
-  const [, lang] = url.pathname.split('/');
-  if (lang in ui) return lang as keyof typeof ui;
+export function getLangFromUrl(url: URL): Lang {
+  const [, lang] = url.pathname.split("/");
+  if (lang in ui) return lang as Lang;
   return defaultLang;
 }
 
-export function t(lang: keyof typeof ui, key: UIKey): string {
+export function t(lang: Lang, key: UIKey): string {
   return ui[lang][key] ?? ui[defaultLang][key];
 }
 
-export function getLocalePath(lang: keyof typeof ui, path: string = ''): string {
+export function getLocalePath(lang: Lang, path: string = ""): string {
   if (lang === defaultLang) {
-    return path || '/';
+    return path || "/";
   }
-  return `/${lang}${path || ''}` || `/${lang}`;
+  return `/${lang}${path || ""}` || `/${lang}`;
+}
+
+/**
+ * Strips the locale prefix from a pathname so a route can be re-localised.
+ * `/en/projects` -> `/projects`, `/en/` -> `/`.
+ */
+export function stripLocale(pathname: string): string {
+  const segments = pathname.split("/").filter(Boolean);
+  if (segments[0] && segments[0] in ui) segments.shift();
+  return segments.length ? `/${segments.join("/")}` : "/";
 }

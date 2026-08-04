@@ -1,0 +1,18 @@
+---
+import Section from '../components/ui/Section.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import { t } from '../i18n/ui';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lang = 'de';
+---
+
+<BaseLayout lang={lang} title={t(lang, 'projects.title')}>
+  <Section size="lg">
+    <SectionHeading
+      as="h1"
+      title={t(lang, 'projects.title')}
+      intro={t(lang, 'projects.intro')}
+    />
+  </Section>
+</BaseLayout>
