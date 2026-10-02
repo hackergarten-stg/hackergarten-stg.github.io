@@ -9,7 +9,7 @@ export const links = {
   github: "https://github.com/hackergarten-stg",
   hackergarten: "https://hackergarten.net",
   codecentric: "https://www.codecentric.de/standorte/stuttgart",
-  wifo: "https://wirtschaftsfoerderung.stuttgart.de/",
+  wifo: "https://wrs.region-stuttgart.de/",
 } as const;
 
 /**
@@ -26,21 +26,28 @@ export const sponsors: {
   nameKey: UIKey;
   descKey: UIKey;
   logo?: string;
+  logoDark?: string;
 }[] = [
   {
     href: links.codecentric,
     nameKey: "sponsors.codecentric.name",
     descKey: "sponsors.codecentric.desc",
+    logo: "/sponsors/codecentric-wordmark.webp",
+    logoDark: "/sponsors/codecentric-wordmark-dark.webp",
   },
   {
     href: links.wifo,
     nameKey: "sponsors.wifo.name",
     descKey: "sponsors.wifo.desc",
+    logo: "/sponsors/wrs.svg",
+    logoDark: "/sponsors/wrs-dark.svg",
   },
   {
     href: links.hackergarten,
     nameKey: "sponsors.hackergarten.name",
     descKey: "sponsors.hackergarten.desc",
+    logo: "/sponsors/hackergarten.svg",
+    logoDark: "/sponsors/hackergarten-dark.svg",
   },
 ];
 
