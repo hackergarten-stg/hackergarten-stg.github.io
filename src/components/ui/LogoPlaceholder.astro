@@ -3,15 +3,20 @@ interface Props {
   label: string;
   /** Drop real logo files into `public/sponsors/` and pass e.g. `/sponsors/codecentric.svg`. */
   src?: string;
+  /** Optional variant shown instead of `src` in dark mode. */
+  srcDark?: string;
 }
 
-const { label, src } = Astro.props;
+const { label, src, srcDark } = Astro.props;
 ---
 
 <div class="slot">
   {
     src ? (
-      <img src={src} alt={label} class="logo" />
+      <>
+        <img src={src} alt={label} class:list={['logo', { 'logo--light': srcDark }]} />
+        {srcDark && <img src={srcDark} alt={label} class="logo logo--dark" />}
+      </>
     ) : (
       <span class="placeholder">{label}</span>
     )
@@ -21,15 +26,28 @@ const { label, src } = Astro.props;
 <style>
   .slot {
     height: 64px;
-    filter: var(--sponsor-filter);
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   .logo {
     max-height: 100%;
+    max-width: 100%;
     width: auto;
     object-fit: contain;
+  }
+
+  .logo--dark {
+    display: none;
+  }
+
+  :global([data-theme='dark']) .logo--light {
+    display: none;
+  }
+
+  :global([data-theme='dark']) .logo--dark {
+    display: block;
   }
 
   .placeholder {

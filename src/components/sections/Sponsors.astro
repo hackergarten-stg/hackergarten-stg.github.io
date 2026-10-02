@@ -20,12 +20,13 @@ const { lang } = Astro.props;
   />
   <div class="grid">
     {
-      sponsors.map(({ href, nameKey, descKey, logo }) => (
+      sponsors.map(({ href, nameKey, descKey, logo, logoDark }) => (
         <SponsorCard
           href={href}
           name={t(lang, nameKey)}
           description={t(lang, descKey)}
           logo={logo}
+          logoDark={logoDark}
         />
       ))
     }
