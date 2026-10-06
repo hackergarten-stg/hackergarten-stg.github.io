@@ -12,7 +12,8 @@ body {
 h1,
 h2,
 h3 {
-  font-weight: var(--weight-semibold);
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
   letter-spacing: var(--tracking-heading);
   text-wrap: balance;
 }
@@ -23,6 +24,7 @@ a {
 }
 
 a:hover {
+  color: var(--fg);
   text-decoration: underline;
 }
 

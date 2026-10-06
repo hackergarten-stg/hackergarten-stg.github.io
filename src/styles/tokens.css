@@ -1,21 +1,30 @@
 :root {
-  --bg: #fbfaf6;
+  /* Sandstein + Signal: official greens/reds are identical in both themes */
+  --accent-fill: #00a357;
+  --on-accent: #08140d;
+  --signal-fill: #e03030;
+
+  --bg: #f5f2ea;
   --surface: #ffffff;
-  --surface-2: #f4f2ec;
-  --fg: #1a1a17;
-  --muted: #6d6c63;
-  --line: #e4e1d8;
-  --accent: oklch(0.52 0.11 152);
-  --accent-soft: oklch(0.95 0.03 152);
+  --surface-2: #ede8dc;
+  --fg: #16201a;
+  --muted: #4f564f;
+  --line: #ded8ca;
+  --line-strong: #cfc7b5;
+  --accent: #007a40;
+  --accent-soft: color-mix(in srgb, var(--accent-fill) 12%, var(--surface));
+  --signal: #b82424;
   --shadow:
-    0 1px 2px rgba(26, 26, 23, 0.05), 0 8px 24px -12px rgba(26, 26, 23, 0.12);
+    0 1px 2px rgba(22, 32, 26, 0.05), 0 8px 24px -12px rgba(22, 32, 26, 0.12);
   color-scheme: light;
 
-  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-sans: "Instrument Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   --weight-medium: 500;
   --weight-semibold: 600;
+  --weight-bold: 700;
 
   --fs-xs: 12px;
   --fs-sm: 13px;
@@ -35,8 +44,7 @@
   --lh-snug: 1.25;
   --lh-body: 1.6;
 
-  --tracking-display: -0.035em;
-  --tracking-heading: -0.025em;
+  --tracking-heading: -0.03em;
   --tracking-tight: -0.015em;
   --tracking-mono: 0.08em;
 
@@ -64,7 +72,7 @@
   --card-pad-sm: var(--space-6);
   --card-gap-sm: var(--space-4);
 
-  --button-pad: var(--space-4) var(--space-6);
+  --button-pad: var(--space-3) var(--space-5);
   --button-pad-sm: var(--space-2) var(--space-4);
   --control-pad: var(--space-2);
 
@@ -90,30 +98,35 @@
   --control-size: 34px;
   --logo-height: 64px;
 
-  --radius-card: 16px;
-  --radius-btn: 10px;
-  --radius-sm: 8px;
+  --radius: 6px;
+  --radius-card: var(--radius);
+  --radius-btn: var(--radius);
+  --radius-sm: var(--radius);
   --radius-xs: 2px;
 
   --border-width: 1px;
   --border-width-thick: 2px;
+  --border-width-accent: 4px;
   --focus-offset: 2px;
 
   --backdrop-blur: 10px;
   --hover-brightness: 1.08;
 
   --duration: 0.15s;
+  --duration-blink: 1s;
 }
 
 [data-theme="dark"] {
-  --bg: #121311;
-  --surface: #1a1c19;
-  --surface-2: #212420;
-  --fg: #ecebe5;
-  --muted: #9b9b92;
-  --line: #2c2f2b;
-  --accent: oklch(0.76 0.13 152);
-  --accent-soft: oklch(0.3 0.05 152);
+  --bg: #121a15;
+  --surface: #1b2620;
+  --surface-2: #17201a;
+  --fg: #f2efe6;
+  --muted: #b3bab2;
+  --line: #2a362f;
+  --line-strong: #3a483f;
+  --accent: #1fc274;
+  --accent-soft: color-mix(in srgb, var(--accent-fill) 16%, var(--surface));
+  --signal: #ff6b60;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
   color-scheme: dark;
 }
