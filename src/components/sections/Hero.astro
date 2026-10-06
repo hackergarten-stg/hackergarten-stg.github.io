@@ -14,7 +14,9 @@ const { lang } = Astro.props;
 
 <Section size="lg">
   <Eyebrow>{t(lang, 'hero.eyebrow')}</Eyebrow>
-  <h1 class="title">{t(lang, 'hero.title')}</h1>
+  <h1 class="title">
+    {t(lang, 'hero.title')}<span class="cursor" aria-hidden="true">_</span>
+  </h1>
   <p class="subline">{t(lang, 'hero.subline')}</p>
   <div class="actions">
     <Button href={links.meetup}>{t(lang, 'hero.cta')}</Button>
@@ -25,10 +27,28 @@ const { lang } = Astro.props;
 <style>
   .title {
     margin: var(--space-5) 0 var(--space-6);
+    font-family: var(--font-mono);
     font-size: var(--fs-h1);
     line-height: var(--lh-display);
-    letter-spacing: var(--tracking-display);
+    letter-spacing: var(--tracking-tight);
     max-width: var(--measure-xs);
+  }
+
+  .cursor {
+    color: var(--signal-fill);
+    animation: blink var(--duration-blink) steps(1) infinite;
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor {
+      animation: none;
+    }
   }
 
   .subline {

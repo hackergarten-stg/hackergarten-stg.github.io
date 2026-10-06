@@ -33,6 +33,7 @@ const isLink = Tag === 'a';
   .card {
     background: var(--surface);
     border: var(--border-width) solid var(--line);
+    border-top: var(--border-width-accent) solid var(--accent-fill);
     border-radius: var(--radius-card);
     display: flex;
     flex-direction: column;
@@ -66,6 +67,6 @@ const isLink = Tag === 'a';
   }
 
   .interactive:hover {
-    border-color: var(--accent);
+    border-color: var(--accent-fill);
   }
 </style>

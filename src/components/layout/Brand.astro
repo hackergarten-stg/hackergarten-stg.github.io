@@ -31,19 +31,20 @@ const { lang } = Astro.props;
     height: var(--control-size);
     flex-shrink: 0;
     border-radius: var(--radius-btn);
-    background: var(--accent);
-    color: var(--bg);
+    background: var(--accent-fill);
+    color: var(--on-accent);
     display: grid;
     place-items: center;
     font-family: var(--font-mono);
     font-size: var(--fs-sm);
-    font-weight: var(--weight-medium);
+    font-weight: var(--weight-bold);
     letter-spacing: var(--tracking-tight);
   }
 
   .wordmark {
+    font-family: var(--font-display);
     font-size: var(--fs-lg);
-    font-weight: var(--weight-semibold);
+    font-weight: var(--weight-bold);
     letter-spacing: var(--tracking-tight);
   }
 </style>
