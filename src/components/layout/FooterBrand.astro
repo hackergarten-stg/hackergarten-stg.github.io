@@ -33,15 +33,15 @@ const { lang } = Astro.props;
   .column {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--gap);
   }
 
   .made {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: var(--gap-tight);
     font-size: var(--fs-md);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
   }
 
   .heart {
@@ -49,13 +49,13 @@ const { lang } = Astro.props;
   }
 
   .flag {
-    border-radius: 2px;
-    margin-left: 4px;
+    border-radius: var(--radius-xs);
+    margin-left: var(--space-1);
   }
 
   .tagline {
     font-size: var(--fs-base);
-    line-height: 1.6;
+    line-height: var(--lh-body);
     color: var(--muted);
   }
 </style>

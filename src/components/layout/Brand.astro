@@ -17,7 +17,7 @@ const { lang } = Astro.props;
   .brand {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: var(--gap);
     color: var(--fg);
     text-decoration: none;
   }
@@ -27,8 +27,8 @@ const { lang } = Astro.props;
   }
 
   .mark {
-    width: 34px;
-    height: 34px;
+    width: var(--control-size);
+    height: var(--control-size);
     flex-shrink: 0;
     border-radius: var(--radius-btn);
     background: var(--accent);
@@ -37,13 +37,13 @@ const { lang } = Astro.props;
     place-items: center;
     font-family: var(--font-mono);
     font-size: var(--fs-sm);
-    font-weight: 500;
-    letter-spacing: -0.02em;
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-tight);
   }
 
   .wordmark {
     font-size: var(--fs-lg);
-    font-weight: 600;
-    letter-spacing: -0.01em;
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-tight);
   }
 </style>

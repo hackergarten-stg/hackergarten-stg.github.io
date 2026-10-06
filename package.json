@@ -9,11 +9,16 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "stylelint \"src/**/*.{css,astro}\""
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.1.6",
-    "tailwindcss": "^4.3.3"
+    "astro": "^7.1.6"
+  },
+  "devDependencies": {
+    "@csstools/postcss-global-data": "^4.0.0",
+    "postcss-custom-media": "^12.0.3",
+    "postcss-html": "^2.0.0",
+    "stylelint": "^17.16.0"
   }
 }

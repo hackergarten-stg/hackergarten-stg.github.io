@@ -24,6 +24,12 @@ Manage the background server with `astro dev stop`, `astro dev status`, and `ast
 - `src/styles/` — `global.css` is the only entry point; it imports `tokens.css` (all design constants
   and the `[data-theme="dark"]` overrides), `reset.css` and `base.css`. Component CSS lives in each
   component's scoped `<style>` block and must reference tokens rather than literal colors or sizes.
+  Spacing goes through role tokens (`--gap*`, `--card-*`, `--button-*`, …) built on the 4px `--space-N`
+  base scale; use a base step directly only for one-off nudges. Add missing values to `tokens.css`.
+  `pnpm lint` (Stylelint) fails on literal colors, spacing, sizes, font sizes, font weights, line
+  heights, letter spacing, radii, border widths, filters, grid tracks and durations outside
+  `tokens.css`. Breakpoints are `@custom-media` in `tokens.css` (e.g. `@media (--mobile)`), made
+  available to every component by `postcss.config.mjs`.
 - `src/components/ui/` — reusable, content-free primitives (`Section`, `Card`, `Button`, `Eyebrow`,
   `SectionHeading`, `LogoPlaceholder`).
 - `src/components/layout/` — page chrome (`Header`, `Footer` and their parts).

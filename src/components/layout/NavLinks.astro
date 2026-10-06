@@ -31,17 +31,17 @@ const { lang, route } = Astro.props;
   .nav {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: var(--gap-loose);
     font-size: var(--fs-base);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
   }
 
   .link {
     color: var(--muted);
     text-decoration: none;
-    padding-bottom: 2px;
-    border-bottom: 2px solid transparent;
-    transition: color 0.15s ease;
+    padding-bottom: var(--space-0-5);
+    border-bottom: var(--border-width-thick) solid transparent;
+    transition: color var(--duration) ease;
   }
 
   .link:hover {
