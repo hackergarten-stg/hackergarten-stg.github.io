@@ -24,26 +24,26 @@ const { lang } = Astro.props;
 
 <style>
   .title {
-    margin: 20px 0 24px;
+    margin: var(--space-5) 0 var(--space-6);
     font-size: var(--fs-h1);
-    line-height: 1.04;
-    letter-spacing: -0.035em;
-    max-width: 16ch;
+    line-height: var(--lh-display);
+    letter-spacing: var(--tracking-display);
+    max-width: var(--measure-xs);
   }
 
   .subline {
-    margin: 0 0 36px;
+    margin: 0 0 var(--space-8);
     font-size: var(--fs-xl);
-    line-height: 1.6;
+    line-height: var(--lh-body);
     color: var(--muted);
-    max-width: 54ch;
+    max-width: var(--measure-lg);
     text-wrap: pretty;
   }
 
   .actions {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: var(--space-4);
     flex-wrap: wrap;
   }
 

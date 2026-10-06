@@ -34,43 +34,42 @@ const {
 
 <style>
   .heading-row {
-    margin-bottom: 40px;
+    margin-bottom: var(--gap-section);
   }
 
   .spaced {
-    margin-top: 12px;
+    margin-top: var(--gap);
   }
 
   .split {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    gap: 32px;
+    gap: var(--space-8);
     flex-wrap: wrap;
-    margin-bottom: 44px;
+    margin-bottom: var(--gap-section);
   }
 
   .title {
     margin: 0;
-    line-height: 1.12;
+    line-height: var(--lh-heading);
   }
 
   .lg {
     font-size: var(--fs-h2);
-    max-width: 22ch;
+    max-width: var(--measure-sm);
   }
 
   .sm {
     font-size: var(--fs-h2-sm);
-    line-height: 1.15;
   }
 
   .intro {
     margin: 0;
     font-size: var(--fs-lg);
-    line-height: 1.6;
+    line-height: var(--lh-body);
     color: var(--muted);
-    max-width: 34ch;
+    max-width: var(--measure-md);
     text-wrap: pretty;
   }
 </style>

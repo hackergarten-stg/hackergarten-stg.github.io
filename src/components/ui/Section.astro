@@ -33,16 +33,16 @@ const {
   }
 
   .bordered {
-    border-top: 1px solid var(--line);
+    border-top: var(--border-width) solid var(--line);
   }
 
   .inner {
     max-width: var(--content-max);
     margin: 0 auto;
-    padding: var(--section-y) var(--pad-x) calc(var(--section-y) + 8px);
+    padding: var(--section-y) var(--pad-x) var(--section-y-end);
   }
 
   .size-lg {
-    padding: var(--section-y-lg) var(--pad-x) calc(var(--section-y-lg) - 8px);
+    padding-block: var(--section-y-lg) var(--section-y-lg-end);
   }
 </style>

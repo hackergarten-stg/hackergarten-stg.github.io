@@ -43,23 +43,23 @@ const year = new Date().getFullYear();
 
 <style>
   .footer {
-    border-top: 1px solid var(--line);
+    border-top: var(--border-width) solid var(--line);
     background: var(--surface-2);
   }
 
   .columns {
     max-width: var(--content-max);
     margin: 0 auto;
-    padding: 56px var(--pad-x) 40px;
+    padding: var(--space-14) var(--pad-x) var(--gap-section);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-sm), 1fr));
+    gap: var(--gap-section);
   }
 
   .baseline {
     max-width: var(--content-max);
     margin: 0 auto;
-    padding: 0 var(--pad-x) 40px;
+    padding: 0 var(--pad-x) var(--gap-section);
   }
 
   .copyright {

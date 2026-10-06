@@ -36,7 +36,7 @@ const options = (Object.keys(languages) as Lang[]).map((code) => ({
   .switcher {
     display: flex;
     align-items: center;
-    border: 1px solid var(--line);
+    border: var(--border-width) solid var(--line);
     border-radius: var(--radius-sm);
     overflow: hidden;
     font-family: var(--font-mono);
@@ -44,12 +44,12 @@ const options = (Object.keys(languages) as Lang[]).map((code) => ({
   }
 
   .option {
-    padding: 6px 9px;
+    padding: var(--control-pad);
     color: var(--muted);
     text-decoration: none;
     transition:
-      color 0.15s ease,
-      background 0.15s ease;
+      color var(--duration) ease,
+      background var(--duration) ease;
   }
 
   .option:hover {

@@ -35,7 +35,7 @@ const { lang } = Astro.props;
 <style>
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-lg), 1fr));
     gap: var(--grid-gap);
   }
 </style>

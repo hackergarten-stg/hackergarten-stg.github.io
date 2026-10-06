@@ -23,16 +23,16 @@ const { href, variant = 'solid', arrow = true, external = true } = Astro.props;
   .button {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: var(--gap-tight);
     border-radius: var(--radius-btn);
-    font-weight: 600;
+    font-weight: var(--weight-semibold);
     text-decoration: none;
     white-space: nowrap;
-    border: 1px solid transparent;
+    border: var(--border-width) solid transparent;
     transition:
-      filter 0.15s ease,
-      background 0.15s ease,
-      color 0.15s ease;
+      filter var(--duration) ease,
+      background var(--duration) ease,
+      color var(--duration) ease;
   }
 
   .button:hover {
@@ -46,19 +46,18 @@ const { href, variant = 'solid', arrow = true, external = true } = Astro.props;
   .solid {
     background: var(--accent);
     color: var(--bg);
-    padding: 14px 22px;
+    padding: var(--button-pad);
     font-size: var(--fs-md);
   }
 
   .solid:hover {
-    filter: brightness(1.08);
+    filter: brightness(var(--hover-brightness));
   }
 
   .outline {
     border-color: var(--accent);
     color: var(--accent);
-    padding: 10px 18px;
-    border-radius: 9px;
+    padding: var(--button-pad-sm);
     font-size: var(--fs-base);
   }
 

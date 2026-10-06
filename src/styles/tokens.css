@@ -14,6 +14,9 @@
   --font-sans: "IBM Plex Sans", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
   --fs-xs: 12px;
   --fs-sm: 13px;
   --fs-base: 14px;
@@ -25,17 +28,81 @@
   --fs-h2: clamp(28px, 3.4vw, 40px);
   --fs-h2-sm: clamp(26px, 3vw, 34px);
 
+  --lh-none: 1;
+  --lh-default: 1.5;
+  --lh-display: 1.04;
+  --lh-heading: 1.12;
+  --lh-snug: 1.25;
+  --lh-body: 1.6;
+
+  --tracking-display: -0.035em;
+  --tracking-heading: -0.025em;
+  --tracking-tight: -0.015em;
+  --tracking-mono: 0.08em;
+
+  /* Base scale (--space-N = N × 4px). Components should prefer the role tokens below. */
+  --space-0-5: 2px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-14: 56px;
+  --space-16: 64px;
+
+  /* Roles: retune the site here */
+  --gap-tight: var(--space-2);
+  --gap: var(--space-3);
+  --gap-loose: var(--space-6);
+  --gap-section: var(--space-10);
+
+  --card-pad: var(--space-8);
+  --card-gap: var(--space-3);
+  --card-pad-sm: var(--space-6);
+  --card-gap-sm: var(--space-4);
+
+  --button-pad: var(--space-4) var(--space-6);
+  --button-pad-sm: var(--space-2) var(--space-4);
+  --control-pad: var(--space-2);
+
+  --header-pad-y: var(--space-4);
+
   --content-max: 1140px;
   --pad-x: 32px;
   --section-y: 80px;
+  --section-y-end: 88px;
   --section-y-lg: 96px;
+  --section-y-lg-end: 88px;
   --grid-gap: 20px;
+  --grid-min-sm: 220px;
+  --grid-min-md: 240px;
+  --grid-min-lg: 260px;
+
+  --measure-xs: 16ch;
+  --measure-sm: 22ch;
+  --measure-md: 34ch;
+  --measure-lg: 54ch;
+  --measure-xl: 62ch;
+
+  --control-size: 34px;
+  --logo-height: 64px;
 
   --radius-card: 16px;
   --radius-btn: 10px;
   --radius-sm: 8px;
+  --radius-xs: 2px;
 
-  --tracking-mono: 0.08em;
+  --border-width: 1px;
+  --border-width-thick: 2px;
+  --focus-offset: 2px;
+
+  --backdrop-blur: 10px;
+  --hover-brightness: 1.08;
+
+  --duration: 0.15s;
 }
 
 [data-theme="dark"] {
@@ -51,11 +118,15 @@
   color-scheme: dark;
 }
 
-@media (max-width: 700px) {
+@custom-media --mobile (max-width: 700px);
+
+@media (--mobile) {
   :root {
     --pad-x: 20px;
     --section-y: 56px;
+    --section-y-end: 64px;
     --section-y-lg: 64px;
+    --section-y-lg-end: 56px;
     --grid-gap: 16px;
   }
 }

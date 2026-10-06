@@ -27,14 +27,14 @@ const { number, title, body } = Astro.props;
   .title {
     margin: 0;
     font-size: var(--fs-2xl);
-    line-height: 1.25;
-    letter-spacing: -0.015em;
+    line-height: var(--lh-snug);
+    letter-spacing: var(--tracking-tight);
   }
 
   .body {
     margin: 0;
     font-size: var(--fs-md);
-    line-height: 1.65;
+    line-height: var(--lh-body);
     color: var(--muted);
     text-wrap: pretty;
   }

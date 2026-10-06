@@ -4,8 +4,7 @@ interface Props {
   href?: string;
   interactive?: boolean;
   shadow?: boolean;
-  padding?: string;
-  gap?: string;
+  size?: 'sm' | 'md';
   external?: boolean;
 }
 
@@ -14,8 +13,7 @@ const {
   href,
   interactive = false,
   shadow = true,
-  padding = '28px',
-  gap = '14px',
+  size = 'md',
   external = true,
 } = Astro.props;
 
@@ -26,8 +24,7 @@ const isLink = Tag === 'a';
   href={isLink ? href : undefined}
   target={isLink && external ? '_blank' : undefined}
   rel={isLink && external ? 'noopener noreferrer' : undefined}
-  class:list={['card', { interactive, shadow, link: isLink }]}
-  style={`--card-padding: ${padding}; --card-gap: ${gap};`}
+  class:list={['card', size, { interactive, shadow, link: isLink }]}
 >
   <slot />
 </Tag>
@@ -35,11 +32,19 @@ const isLink = Tag === 'a';
 <style>
   .card {
     background: var(--surface);
-    border: 1px solid var(--line);
+    border: var(--border-width) solid var(--line);
     border-radius: var(--radius-card);
-    padding: var(--card-padding);
     display: flex;
     flex-direction: column;
+  }
+
+  .sm {
+    padding: var(--card-pad-sm);
+    gap: var(--card-gap-sm);
+  }
+
+  .md {
+    padding: var(--card-pad);
     gap: var(--card-gap);
   }
 
@@ -57,7 +62,7 @@ const isLink = Tag === 'a';
   }
 
   .interactive {
-    transition: border-color 0.15s ease;
+    transition: border-color var(--duration) ease;
   }
 
   .interactive:hover {

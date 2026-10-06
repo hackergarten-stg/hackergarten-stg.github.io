@@ -13,7 +13,7 @@ interface Props {
 const { href, name, description, logo, logoDark } = Astro.props;
 ---
 
-<Card as="a" href={href} interactive shadow={false} padding="24px" gap="18px">
+<Card as="a" href={href} interactive shadow={false} size="sm">
   <LogoPlaceholder label={name} src={logo} srcDark={logoDark} />
   <div class="text">
     <span class="name">{name}</span>
@@ -25,17 +25,17 @@ const { href, name, description, logo, logoDark } = Astro.props;
   .text {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: var(--gap-tight);
   }
 
   .name {
     font-size: var(--fs-lg);
-    font-weight: 600;
+    font-weight: var(--weight-semibold);
   }
 
   .description {
     font-size: var(--fs-base);
-    line-height: 1.55;
+    line-height: var(--lh-body);
     color: var(--muted);
   }
 </style>
