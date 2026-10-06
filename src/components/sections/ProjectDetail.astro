@@ -1,0 +1,98 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import { formatDate, getLocalePath, t, type Lang } from '../../i18n/ui';
+import Prose from '../ui/Prose.astro';
+import Section from '../ui/Section.astro';
+
+interface Props {
+  lang: Lang;
+  project: CollectionEntry<'projects'>;
+}
+
+const { lang, project } = Astro.props;
+const { title, date, summary, repo } = project.data;
+const { Content } = await render(project);
+---
+
+<Section size="lg">
+  <a class="back" href={getLocalePath(lang, '/projects')}>
+    <span aria-hidden="true">←</span>
+    {t(lang, 'projects.back')}
+  </a>
+
+  <header class="header">
+    <time class="date" datetime={date.toISOString().slice(0, 10)}>
+      {formatDate(lang, date)}
+    </time>
+    <h1 class="title">{title}</h1>
+    <p class="summary">{summary}</p>
+  </header>
+
+  <Prose>
+    <Content />
+  </Prose>
+
+  {
+    repo && (
+      <p class="repo">
+        <a href={repo} target="_blank" rel="noopener noreferrer">
+          {t(lang, 'projects.repo')}
+          <span aria-hidden="true"> ↗</span>
+        </a>
+      </p>
+    )
+  }
+</Section>
+
+<style>
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--fs-base);
+    font-weight: 500;
+    color: var(--muted);
+  }
+
+  .back:hover {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .header {
+    margin: 28px 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 34ch;
+  }
+
+  .date {
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    letter-spacing: var(--tracking-mono);
+    color: var(--accent);
+  }
+
+  .title {
+    margin: 0;
+    font-size: var(--fs-h2);
+    line-height: 1.12;
+  }
+
+  .summary {
+    margin: 0;
+    font-size: var(--fs-lg);
+    line-height: 1.6;
+    color: var(--muted);
+    text-wrap: pretty;
+  }
+
+  .repo {
+    margin: 48px 0 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-size: var(--fs-md);
+    font-weight: 500;
+  }
+</style>

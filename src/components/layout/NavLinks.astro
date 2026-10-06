@@ -13,7 +13,9 @@ const { lang, route } = Astro.props;
 <nav class="nav">
   {
     navRoutes.map(({ path, labelKey }) => {
-      const active = route === path;
+      // Sub-routes keep their section highlighted, e.g. /projects/jqwik.
+      const active =
+        path === '/' ? route === '/' : route === path || route.startsWith(`${path}/`);
       return (
         <a
           href={getLocalePath(lang, path)}

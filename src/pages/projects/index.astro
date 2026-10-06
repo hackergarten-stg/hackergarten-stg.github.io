@@ -1,0 +1,11 @@
+---
+import Projects from '../../components/sections/Projects.astro';
+import { t } from '../../i18n/ui';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const lang = 'de';
+---
+
+<BaseLayout lang={lang} title={t(lang, 'projects.title')}>
+  <Projects lang={lang} />
+</BaseLayout>
