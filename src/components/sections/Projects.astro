@@ -1,0 +1,72 @@
+---
+import { getCollection } from 'astro:content';
+import { formatDate, getLocalePath, t, type Lang } from '../../i18n/ui';
+import Card from '../ui/Card.astro';
+import Section from '../ui/Section.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const projects = (await getCollection('projects')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<Section size="lg">
+  <SectionHeading
+    as="h1"
+    title={t(lang, 'projects.title')}
+    intro={t(lang, 'projects.intro')}
+  />
+  <div class="grid">
+    {
+      projects.map(({ id, data }) => (
+        <Card
+          as="a"
+          href={getLocalePath(lang, `/projects/${id}`)}
+          external={false}
+          interactive
+        >
+          <time class="date" datetime={data.date.toISOString().slice(0, 10)}>
+            {formatDate(lang, data.date)}
+          </time>
+          <h2 class="title">{data.title}</h2>
+          <p class="summary">{data.summary}</p>
+        </Card>
+      ))
+    }
+  </div>
+</Section>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--grid-gap);
+  }
+
+  .date {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--tracking-mono);
+    color: var(--accent);
+  }
+
+  .title {
+    margin: 0;
+    font-size: var(--fs-2xl);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+  }
+
+  .summary {
+    margin: 0;
+    font-size: var(--fs-md);
+    line-height: 1.65;
+    color: var(--muted);
+    text-wrap: pretty;
+  }
+</style>

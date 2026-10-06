@@ -69,6 +69,8 @@ export const ui = {
     "projects.title": "Projekte",
     "projects.intro":
       "Woran wir bei den letzten Treffen gearbeitet haben – von kleinen Patches bis zu eigenen Tools. Diese Übersicht wächst mit jedem Termin.",
+    "projects.repo": "Repository",
+    "projects.back": "Alle Projekte",
   },
   en: {
     "site.title": "Hackergarten Stuttgart",
@@ -131,6 +133,8 @@ export const ui = {
     "projects.title": "Projects",
     "projects.intro":
       "What we worked on at recent meetups – from small patches to tools of our own. This overview grows with every session.",
+    "projects.repo": "Repository",
+    "projects.back": "All projects",
   },
 } as const;
 
@@ -162,4 +166,13 @@ export function stripLocale(pathname: string): string {
   const segments = pathname.split("/").filter(Boolean);
   if (segments[0] && segments[0] in ui) segments.shift();
   return segments.length ? `/${segments.join("/")}` : "/";
+}
+
+/** Formats a date in the reader's locale, e.g. "3. Februar 2026" / "3 February 2026". */
+export function formatDate(lang: Lang, date: Date): string {
+  return new Intl.DateTimeFormat(lang === "de" ? "de-DE" : "en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(date);
 }
