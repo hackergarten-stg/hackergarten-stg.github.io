@@ -1,5 +1,5 @@
 ---
-import { getLocalePath, t, type Lang } from '../../i18n/ui';
+import { getLocalePath, t, type Lang } from "../../i18n/ui";
 
 interface Props {
   lang: Lang;
@@ -8,9 +8,9 @@ interface Props {
 const { lang } = Astro.props;
 ---
 
-<a href={getLocalePath(lang, '/')} class="brand">
-  <span class="mark" aria-hidden="true">HG</span>
-  <span class="wordmark">{t(lang, 'nav.brand')}</span>
+<a href={getLocalePath(lang, "/")} class="brand">
+  <span class="mark" aria-hidden="true"><img src="/icon.svg" alt="" /></span>
+  <span class="wordmark">{t(lang, "nav.brand")}</span>
 </a>
 
 <style>
@@ -35,10 +35,6 @@ const { lang } = Astro.props;
     color: var(--bg);
     display: grid;
     place-items: center;
-    font-family: var(--font-mono);
-    font-size: var(--fs-sm);
-    font-weight: 500;
-    letter-spacing: -0.02em;
   }
 
   .wordmark {
