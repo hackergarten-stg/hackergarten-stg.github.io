@@ -1,0 +1,31 @@
+---
+import { icons, type IconName } from './icons';
+
+interface Props {
+  name: IconName;
+  size?: 'md' | 'lg';
+}
+
+const { name, size = 'md' } = Astro.props;
+---
+
+<svg class:list={['icon', size]} viewBox="0 0 24 24" aria-hidden="true">
+  <path d={icons[name]}></path>
+</svg>
+
+<style>
+  .icon {
+    flex-shrink: 0;
+    fill: currentColor;
+  }
+
+  .md {
+    width: var(--icon-size);
+    height: var(--icon-size);
+  }
+
+  .lg {
+    width: var(--icon-size-lg);
+    height: var(--icon-size-lg);
+  }
+</style>

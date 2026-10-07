@@ -23,7 +23,9 @@ export const ui = {
     "hero.subline":
       "Gemeinsam an Open-Source-Projekten arbeiten – mit Essen, Getränken und guter Gesellschaft. Bring deinen Laptop mit.",
     "hero.cta": "Zum Meetup",
-    "hero.meta": "ab 17:30 Uhr · codecentric AG, Industriestraße 3",
+    "hero.time": "ab 17:30 Uhr",
+    "hero.venue": "codecentric AG, Industriestraße 3",
+    "hero.video": "Video über den Hackergarten Stuttgart",
 
     "steps.title": "In drei Schritten zu Open Source beitragen",
     "steps.intro":
@@ -31,7 +33,7 @@ export const ui = {
     "steps.1.title":
       "Bring eine Idee für ein Projekt mit – oder schließ dich anderen an",
     "steps.1.body":
-      "Ein Bug, der dich nervt, eine fehlende Doku, ein eigenes Tool. Wenn du nichts dabei hast, stellen andere ihre Projekte vor.",
+      "Ein Bug, der dich nervt, eine fehlende Doku, ein eigenes Tool. Noch keine Idee? Schließ dich einem anderen Projekt an und hilf mit Ideen oder Code.",
     "steps.2.title": "Arbeite gemeinsam mit anderen an den Projekten",
     "steps.2.body":
       "In kleinen Gruppen, im Pair oder Mob. Erfahrene Contributor helfen beim Setup, beim Code und beim Reviewen.",
@@ -39,8 +41,9 @@ export const ui = {
     "steps.3.body":
       "Patch, Doku oder Test – am Ende des Abends geht dein Beitrag zurück an das Projekt und ist für alle nutzbar.",
 
+    "discord.title": "Noch etwas offen?",
     "discord.body":
-      "Die Gespräche gehen auf Discord weiter: Fragen zum Setup, offene Reviews und die nächsten Ideen – auch zwischen den Terminen.",
+      "Fragen, Reviews und neue Ideen besprechen wir zwischen den Terminen auf Discord.",
     "discord.cta": "Discord beitreten",
 
     "sponsors.eyebrow": "Unterstützt von",
@@ -89,14 +92,16 @@ export const ui = {
     "hero.subline":
       "Work together on open source projects – with food, drinks, and good company. Just bring your laptop.",
     "hero.cta": "Join on Meetup",
-    "hero.meta": "from 5:30 PM · codecentric AG, Industriestraße 3",
+    "hero.time": "from 5:30 PM",
+    "hero.venue": "codecentric AG, Industriestraße 3",
+    "hero.video": "Video about Hackergarten Stuttgart",
 
     "steps.title": "Contribute to open source in three steps",
     "steps.intro":
       "No prior experience needed. One evening is enough to make your first contribution.",
     "steps.1.title": "Bring an idea for a project – or join someone else's",
     "steps.1.body":
-      "A bug that annoys you, missing documentation, a tool of your own. If you arrive empty-handed, others will present their projects.",
+      "A bug that annoys you, missing documentation, a tool of your own. No idea yet? Join another project and help out with ideas or code.",
     "steps.2.title": "Work on the projects together with others",
     "steps.2.body":
       "In small groups, pairing or mobbing. Experienced contributors help with the setup, the code and the reviews.",
@@ -104,8 +109,9 @@ export const ui = {
     "steps.3.body":
       "A patch, documentation or a test – by the end of the evening your contribution goes back to the project for everyone to use.",
 
+    "discord.title": "Follow up needed?",
     "discord.body":
-      "The conversation continues on Discord: setup questions, open reviews and the next ideas – also between meetups.",
+      "Questions, reviews and new ideas carry on in our Discord between meetups.",
     "discord.cta": "Join Discord",
 
     "sponsors.eyebrow": "Supported by",

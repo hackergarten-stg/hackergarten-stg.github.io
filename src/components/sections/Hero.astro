@@ -1,8 +1,11 @@
 ---
-import { links } from '../../config/site';
+import { links, socialLinks } from '../../config/site';
 import { t, type Lang } from '../../i18n/ui';
 import Button from '../ui/Button.astro';
 import Eyebrow from '../ui/Eyebrow.astro';
+import ExternalLink from '../ui/ExternalLink.astro';
+import Icon from '../ui/Icon.astro';
+import IconLinks from '../ui/IconLinks.astro';
 import Section from '../ui/Section.astro';
 
 interface Props {
@@ -13,18 +16,65 @@ const { lang } = Astro.props;
 ---
 
 <Section size="lg">
-  <Eyebrow>{t(lang, 'hero.eyebrow')}</Eyebrow>
-  <h1 class="title">
-    {t(lang, 'hero.title')}<span class="cursor" aria-hidden="true">_</span>
-  </h1>
-  <p class="subline">{t(lang, 'hero.subline')}</p>
-  <div class="actions">
-    <Button href={links.meetup}>{t(lang, 'hero.cta')}</Button>
-    <span class="meta">{t(lang, 'hero.meta')}</span>
+  <div class="hero">
+    <div>
+      <h1 class="title">
+        {t(lang, 'hero.title')}<span class="cursor" aria-hidden="true">_</span>
+      </h1>
+      <p class="subline">{t(lang, 'hero.subline')}</p>
+      <div class="schedule">
+        <Eyebrow>{t(lang, 'hero.eyebrow')}</Eyebrow>
+        <p class="meta">
+          {t(lang, 'hero.time')} ·{' '}
+          <ExternalLink href={links.maps} hint>
+            {t(lang, 'hero.venue')}
+          </ExternalLink>
+        </p>
+      </div>
+      <div class="actions">
+        <Button href={links.meetupEvents}>
+          <Icon name="meetup" />
+          {t(lang, 'hero.cta')}
+        </Button>
+        <IconLinks links={socialLinks} />
+      </div>
+    </div>
+    <iframe
+      class="video"
+      src={links.heroVideo}
+      title={t(lang, 'hero.video')}
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
   </div>
 </Section>
 
 <style>
+  .hero {
+    display: grid;
+    grid-template-columns: var(--hero-tracks);
+    align-items: center;
+    gap: var(--gap-section);
+  }
+
+  .video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: var(--border-width) solid var(--line);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow);
+  }
+
+  @media (--tablet) {
+    .hero {
+      grid-template-columns: var(--grid-single);
+    }
+
+    .video {
+      max-width: var(--hero-video-max);
+    }
+  }
+
   .title {
     margin: var(--space-5) 0 var(--space-6);
     font-family: var(--font-mono);
@@ -60,14 +110,22 @@ const { lang } = Astro.props;
     text-wrap: pretty;
   }
 
+  .schedule {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+  }
+
   .actions {
     display: flex;
     align-items: center;
-    gap: var(--space-4);
     flex-wrap: wrap;
+    gap: var(--space-5);
   }
 
   .meta {
+    margin: 0;
     font-family: var(--font-mono);
     font-size: var(--fs-sm);
     color: var(--muted);

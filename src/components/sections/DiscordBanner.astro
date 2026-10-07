@@ -2,6 +2,7 @@
 import { links } from '../../config/site';
 import { t, type Lang } from '../../i18n/ui';
 import Button from '../ui/Button.astro';
+import Icon from '../ui/Icon.astro';
 
 interface Props {
   lang: Lang;
@@ -10,32 +11,62 @@ interface Props {
 const { lang } = Astro.props;
 ---
 
-<div class="banner">
-  <p class="body">{t(lang, 'discord.body')}</p>
-  <Button href={links.discord} variant="outline">
-    {t(lang, 'discord.cta')}
-  </Button>
-</div>
+<aside class="invite">
+  <Icon name="discord" size="lg" />
+  <div class="text">
+    <h3 class="title">{t(lang, 'discord.title')}</h3>
+    <p class="body">{t(lang, 'discord.body')}</p>
+  </div>
+  <div class="cta">
+    <Button href={links.discord} variant="inverse" block>
+      {t(lang, 'discord.cta')}
+    </Button>
+  </div>
+</aside>
 
 <style>
-  .banner {
+  .invite {
     margin-top: var(--grid-gap);
-    background: var(--accent-soft);
-    border: var(--border-width) solid var(--line);
+    padding: var(--space-4) var(--space-6);
     border-radius: var(--radius-card);
-    padding: var(--space-6) var(--space-8);
-    display: flex;
+    background: var(--discord);
+    color: var(--on-discord);
+    display: grid;
+    grid-template-columns: var(--invite-tracks);
     align-items: center;
-    justify-content: space-between;
-    gap: var(--gap-loose);
-    flex-wrap: wrap;
+    gap: var(--space-5);
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .title {
+    margin: 0;
+    font-size: var(--fs-lg);
+    line-height: var(--lh-snug);
+    letter-spacing: var(--tracking-tight);
   }
 
   .body {
     margin: 0;
-    font-size: var(--fs-md);
+    font-size: var(--fs-base);
     line-height: var(--lh-body);
     max-width: var(--measure-xl);
     text-wrap: pretty;
+  }
+
+  @media (--mobile) {
+    .invite {
+      grid-template-columns: var(--invite-tracks-sm);
+      align-items: start;
+      gap: var(--space-4);
+    }
+
+    .cta {
+      grid-column: 1 / -1;
+    }
   }
 </style>

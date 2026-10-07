@@ -13,7 +13,7 @@ interface Props {
 const { href, name, description, logo, logoDark } = Astro.props;
 ---
 
-<Card as="a" href={href} interactive shadow={false} size="sm">
+<Card as="a" href={href} interactive shadow={false} size="sm" split="center">
   <LogoPlaceholder label={name} src={logo} srcDark={logoDark} />
   <div class="text">
     <span class="name">{name}</span>

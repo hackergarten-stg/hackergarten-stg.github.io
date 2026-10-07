@@ -12,19 +12,21 @@ const { lang } = Astro.props;
   <span class="made">
     {t(lang, 'footer.madePrefix')}
     <span class="heart" aria-hidden="true">♥</span>
-    {t(lang, 'footer.madeSuffix')}
-    <svg
-      width="18"
-      height="12"
-      viewBox="0 0 18 12"
-      role="img"
-      aria-label={t(lang, 'footer.flag')}
-      class="flag"
-    >
-      <rect width="18" height="4" y="0" fill="#000000"></rect>
-      <rect width="18" height="4" y="4" fill="#DD0000"></rect>
-      <rect width="18" height="4" y="8" fill="#FFCE00"></rect>
-    </svg>
+    <span class="place">
+      {t(lang, 'footer.madeSuffix')}
+      <svg
+        width="18"
+        height="12"
+        viewBox="0 0 18 12"
+        role="img"
+        aria-label={t(lang, 'footer.flag')}
+        class="flag"
+      >
+        <rect width="18" height="4" y="0" fill="#000000"></rect>
+        <rect width="18" height="4" y="4" fill="#DD0000"></rect>
+        <rect width="18" height="4" y="8" fill="#FFCE00"></rect>
+      </svg>
+    </span>
   </span>
   <span class="tagline">{t(lang, 'footer.tagline')}</span>
 </div>
@@ -38,10 +40,18 @@ const { lang } = Astro.props;
 
   .made {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: var(--gap-tight);
+    white-space: nowrap;
     font-size: var(--fs-md);
     font-weight: var(--weight-medium);
+  }
+
+  .place {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap-tight);
   }
 
   .heart {

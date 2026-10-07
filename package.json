@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "hackergarten-stg.github.io",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -13,7 +13,8 @@
     "lint": "stylelint \"src/**/*.{css,astro}\""
   },
   "dependencies": {
-    "astro": "^7.1.6"
+    "astro": "^7.1.6",
+    "simple-icons": "^16.34.0"
   },
   "devDependencies": {
     "@csstools/postcss-global-data": "^4.0.0",

@@ -1,4 +1,6 @@
 ---
+import { externalAttrs } from './external';
+
 interface Props {
   as?: 'article' | 'a' | 'div';
   href?: string;
@@ -6,6 +8,8 @@ interface Props {
   shadow?: boolean;
   size?: 'sm' | 'md';
   external?: boolean;
+  /** On tablets, where the card spans the full width, lay out its two children side by side, aligned as given. */
+  split?: 'top' | 'center';
 }
 
 const {
@@ -15,6 +19,7 @@ const {
   shadow = true,
   size = 'md',
   external = true,
+  split,
 } = Astro.props;
 
 const isLink = Tag === 'a';
@@ -22,9 +27,13 @@ const isLink = Tag === 'a';
 
 <Tag
   href={isLink ? href : undefined}
-  target={isLink && external ? '_blank' : undefined}
-  rel={isLink && external ? 'noopener noreferrer' : undefined}
-  class:list={['card', size, { interactive, shadow, link: isLink }]}
+  {...externalAttrs(isLink && external)}
+  class:list={[
+    'card',
+    size,
+    split && ['split', `split-${split}`],
+    { interactive, shadow, link: isLink },
+  ]}
 >
   <slot />
 </Tag>
@@ -47,6 +56,22 @@ const isLink = Tag === 'a';
   .md {
     padding: var(--card-pad);
     gap: var(--card-gap);
+  }
+
+  @media (--tablet-only) {
+    .split {
+      display: grid;
+      grid-template-columns: var(--row-tracks);
+      gap: var(--gap-loose);
+    }
+
+    .split-top {
+      align-items: start;
+    }
+
+    .split-center {
+      align-items: center;
+    }
   }
 
   .shadow {

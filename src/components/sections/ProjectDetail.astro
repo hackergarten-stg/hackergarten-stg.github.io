@@ -1,6 +1,7 @@
 ---
 import { render, type CollectionEntry } from 'astro:content';
 import { formatDate, getLocalePath, t, type Lang } from '../../i18n/ui';
+import ExternalLink from '../ui/ExternalLink.astro';
 import Prose from '../ui/Prose.astro';
 import Section from '../ui/Section.astro';
 
@@ -35,10 +36,9 @@ const { Content } = await render(project);
   {
     repo && (
       <p class="repo">
-        <a href={repo} target="_blank" rel="noopener noreferrer">
+        <ExternalLink href={repo} hint>
           {t(lang, 'projects.repo')}
-          <span aria-hidden="true"> ↗</span>
-        </a>
+        </ExternalLink>
       </p>
     )
   }
@@ -48,9 +48,9 @@ const { Content } = await render(project);
   .back {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--gap-tight);
     font-size: var(--fs-base);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
     color: var(--muted);
   }
 
@@ -60,11 +60,11 @@ const { Content } = await render(project);
   }
 
   .header {
-    margin: 28px 0 40px;
+    margin: var(--space-6) 0 var(--space-10);
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    max-width: 34ch;
+    gap: var(--gap);
+    max-width: var(--measure-md);
   }
 
   .date {
@@ -77,22 +77,22 @@ const { Content } = await render(project);
   .title {
     margin: 0;
     font-size: var(--fs-h2);
-    line-height: 1.12;
+    line-height: var(--lh-heading);
   }
 
   .summary {
     margin: 0;
     font-size: var(--fs-lg);
-    line-height: 1.6;
+    line-height: var(--lh-body);
     color: var(--muted);
     text-wrap: pretty;
   }
 
   .repo {
-    margin: 48px 0 0;
-    padding-top: 24px;
-    border-top: 1px solid var(--line);
+    margin: var(--space-12) 0 0;
+    padding-top: var(--space-6);
+    border-top: var(--border-width) solid var(--line);
     font-size: var(--fs-md);
-    font-weight: 500;
+    font-weight: var(--weight-medium);
   }
 </style>

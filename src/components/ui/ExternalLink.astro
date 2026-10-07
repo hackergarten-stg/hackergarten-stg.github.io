@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { externalAttrs } from './external';
+
+interface Props extends HTMLAttributes<'a'> {
+  href: string;
+  /** Append a ↗ after the label to signal that the link leaves the site. */
+  hint?: boolean;
+}
+
+const { hint = false, ...attrs } = Astro.props;
+---
+
+<a {...attrs} {...externalAttrs()}>
+  <slot />{hint && <span aria-hidden="true"> ↗</span>}
+</a>

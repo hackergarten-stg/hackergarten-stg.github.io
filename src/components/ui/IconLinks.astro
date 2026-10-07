@@ -1,0 +1,48 @@
+---
+import ExternalLink from './ExternalLink.astro';
+import Icon from './Icon.astro';
+import type { IconLink } from './icons';
+
+interface Props {
+  links: IconLink[];
+}
+
+const { links } = Astro.props;
+---
+
+<div class="links">
+  {
+    links.map(({ href, label, icon }) => (
+      <ExternalLink href={href} class="link" aria-label={label} title={label}>
+        <Icon name={icon} />
+      </ExternalLink>
+    ))
+  }
+</div>
+
+<style>
+  .links {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-tight);
+  }
+
+  .link {
+    width: var(--control-size);
+    height: var(--control-size);
+    display: grid;
+    place-items: center;
+    border: var(--border-width) solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--fg);
+    transition:
+      color var(--duration) ease,
+      border-color var(--duration) ease;
+  }
+
+  .link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+</style>
