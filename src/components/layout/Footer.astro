@@ -1,6 +1,8 @@
 ---
 import { communityLinks } from '../../config/site';
 import { t, type Lang } from '../../i18n/ui';
+import ExternalLink from '../ui/ExternalLink.astro';
+import Grid from '../ui/Grid.astro';
 import FooterBrand from './FooterBrand.astro';
 import FooterColumn from './FooterColumn.astro';
 
@@ -14,24 +16,24 @@ const year = new Date().getFullYear();
 
 <footer class="footer">
   <div class="columns">
-    <FooterBrand lang={lang} />
+    <Grid collapse="mobile" gap="section">
+      <FooterBrand lang={lang} />
 
-    <FooterColumn title={t(lang, 'footer.whenWhere')}>
-      <span>{t(lang, 'footer.when')}</span>
-      <span class="muted">
-        {t(lang, 'footer.venueName')}<br />{t(lang, 'footer.venueAddress')}
-      </span>
-    </FooterColumn>
+      <FooterColumn title={t(lang, 'footer.whenWhere')}>
+        <span>{t(lang, 'footer.when')}</span>
+        <span class="muted">
+          {t(lang, 'footer.venueName')}<br />{t(lang, 'footer.venueAddress')}
+        </span>
+      </FooterColumn>
 
-    <FooterColumn title={t(lang, 'footer.community')}>
-      {
-        communityLinks.map(({ href, label }) => (
-          <a href={href} target="_blank" rel="noopener noreferrer">
-            {label}
-          </a>
-        ))
-      }
-    </FooterColumn>
+      <FooterColumn title={t(lang, 'footer.community')}>
+        {
+          communityLinks.map(({ href, label }) => (
+            <ExternalLink href={href}>{label}</ExternalLink>
+          ))
+        }
+      </FooterColumn>
+    </Grid>
   </div>
 
   <div class="baseline">
@@ -51,9 +53,6 @@ const year = new Date().getFullYear();
     max-width: var(--content-max);
     margin: 0 auto;
     padding: var(--space-14) var(--pad-x) var(--gap-section);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-sm), 1fr));
-    gap: var(--gap-section);
   }
 
   .baseline {

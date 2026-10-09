@@ -1,0 +1,57 @@
+---
+type Props = { gap?: 'default' | 'section' } & (
+  | {
+      columns?: 'thirds';
+      /** Breakpoint at which the three columns stack into one. */
+      collapse?: 'tablet' | 'mobile';
+    }
+  | {
+      /** As many columns as fit; wraps on its own, so it never collapses. */
+      columns: 'auto';
+    }
+);
+
+const { gap = 'default' } = Astro.props;
+const layout =
+  Astro.props.columns === 'auto'
+    ? 'auto'
+    : ['thirds', `collapse-${Astro.props.collapse ?? 'tablet'}`];
+---
+
+<div class:list={['grid', layout, `gap-${gap}`]}>
+  <slot />
+</div>
+
+<style>
+  .grid {
+    display: grid;
+  }
+
+  .thirds {
+    grid-template-columns: var(--grid-thirds);
+  }
+
+  .auto {
+    grid-template-columns: var(--grid-auto);
+  }
+
+  .gap-default {
+    gap: var(--grid-gap);
+  }
+
+  .gap-section {
+    gap: var(--gap-section);
+  }
+
+  @media (--tablet) {
+    .collapse-tablet {
+      grid-template-columns: var(--grid-single);
+    }
+  }
+
+  @media (--mobile) {
+    .collapse-mobile {
+      grid-template-columns: var(--grid-single);
+    }
+  }
+</style>

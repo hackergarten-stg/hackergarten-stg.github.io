@@ -10,13 +10,21 @@ interface Props {
 const { number, title, body } = Astro.props;
 ---
 
-<Card>
-  <span class="number">{number}</span>
-  <h3 class="title">{title}</h3>
+<Card split="top">
+  <div class="head">
+    <span class="number">{number}</span>
+    <h3 class="title">{title}</h3>
+  </div>
   <p class="body">{body}</p>
 </Card>
 
 <style>
+  .head {
+    display: flex;
+    flex-direction: column;
+    gap: var(--card-gap);
+  }
+
   .number {
     font-family: var(--font-mono);
     font-size: var(--fs-xs);

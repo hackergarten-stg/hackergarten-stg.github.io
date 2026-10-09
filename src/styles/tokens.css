@@ -12,8 +12,11 @@
   --line: #ded8ca;
   --line-strong: #cfc7b5;
   --accent: #007a40;
-  --accent-soft: color-mix(in srgb, var(--accent-fill) 12%, var(--surface));
   --signal: #b82424;
+  --inverse-fill: #ffffff;
+  --on-inverse: #23272a;
+  --discord: #5865f2;
+  --on-discord: #ffffff;
   --shadow:
     0 1px 2px rgba(22, 32, 26, 0.05), 0 8px 24px -12px rgba(22, 32, 26, 0.12);
   color-scheme: light;
@@ -43,6 +46,7 @@
   --lh-heading: 1.12;
   --lh-snug: 1.25;
   --lh-body: 1.6;
+  --lh-prose: 1.7;
 
   --tracking-heading: -0.03em;
   --tracking-tight: -0.015em;
@@ -58,6 +62,7 @@
   --space-6: 24px;
   --space-8: 32px;
   --space-10: 40px;
+  --space-12: 48px;
   --space-14: 56px;
   --space-16: 64px;
 
@@ -85,17 +90,33 @@
   --section-y-lg: 96px;
   --section-y-lg-end: 88px;
   --grid-gap: 20px;
-  --grid-min-sm: 220px;
-  --grid-min-md: 240px;
-  --grid-min-lg: 260px;
+  --hero-tracks: minmax(0, 1fr) minmax(0, 1fr);
+  --hero-video-max: 640px;
+  --grid-thirds: repeat(3, minmax(0, 1fr));
+  --grid-single: minmax(0, 1fr);
+  --grid-auto: repeat(auto-fit, minmax(280px, 1fr));
+  --row-tracks: minmax(0, 2fr) minmax(0, 3fr);
+  --invite-tracks: auto minmax(0, 1fr) auto;
+  --invite-tracks-sm: auto minmax(0, 1fr);
 
   --measure-xs: 16ch;
   --measure-sm: 22ch;
   --measure-md: 34ch;
   --measure-lg: 54ch;
   --measure-xl: 62ch;
+  --measure-prose: 68ch;
+
+  /* Prose spacing scales with the text it sits in */
+  --prose-flow: 1.1em;
+  --prose-heading-gap: 2em;
+  --prose-list-indent: 1.3em;
+  --prose-item-gap: 0.4em;
+  --prose-code-size: 0.875em;
+  --prose-code-pad: 0.1em 0.35em;
 
   --control-size: 34px;
+  --icon-size: 18px;
+  --icon-size-lg: 32px;
   --logo-height: 64px;
 
   --radius: 6px;
@@ -111,6 +132,7 @@
 
   --backdrop-blur: 10px;
   --hover-brightness: 1.08;
+  --hover-dim: 0.94;
 
   --duration: 0.15s;
   --duration-blink: 1s;
@@ -125,13 +147,14 @@
   --line: #2a362f;
   --line-strong: #3a483f;
   --accent: #1fc274;
-  --accent-soft: color-mix(in srgb, var(--accent-fill) 16%, var(--surface));
   --signal: #ff6b60;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
   color-scheme: dark;
 }
 
 @custom-media --mobile (max-width: 700px);
+@custom-media --tablet (max-width: 960px);
+@custom-media --tablet-only (701px <= width <= 960px);
 
 @media (--mobile) {
   :root {

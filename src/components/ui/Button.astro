@@ -1,19 +1,28 @@
 ---
+import { externalAttrs } from './external';
+
 interface Props {
   href: string;
-  variant?: 'solid' | 'outline';
+  variant?: 'solid' | 'outline' | 'inverse';
   arrow?: boolean;
   external?: boolean;
+  /** Fill the width of the container, centring the label. */
+  block?: boolean;
 }
 
-const { href, variant = 'solid', arrow = true, external = true } = Astro.props;
+const {
+  href,
+  variant = 'solid',
+  arrow = true,
+  external = true,
+  block = false,
+} = Astro.props;
 ---
 
 <a
   href={href}
-  class:list={['button', variant]}
-  target={external ? '_blank' : undefined}
-  rel={external ? 'noopener noreferrer' : undefined}
+  class:list={['button', variant, { block }]}
+  {...externalAttrs(external)}
 >
   <slot />
   {arrow && <span class="arrow" aria-hidden="true">→</span>}
@@ -40,6 +49,11 @@ const { href, variant = 'solid', arrow = true, external = true } = Astro.props;
     text-decoration: none;
   }
 
+  .block {
+    width: 100%;
+    justify-content: center;
+  }
+
   .arrow {
     font-family: var(--font-mono);
   }
@@ -52,6 +66,16 @@ const { href, variant = 'solid', arrow = true, external = true } = Astro.props;
 
   .solid:hover {
     filter: brightness(var(--hover-brightness));
+  }
+
+  .inverse {
+    background: var(--inverse-fill);
+    color: var(--on-inverse);
+    padding: var(--button-pad-sm);
+  }
+
+  .inverse:hover {
+    filter: brightness(var(--hover-dim));
   }
 
   .outline {

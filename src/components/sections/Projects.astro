@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { formatDate, getLocalePath, t, type Lang } from '../../i18n/ui';
 import Card from '../ui/Card.astro';
+import Grid from '../ui/Grid.astro';
 import Section from '../ui/Section.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
 
@@ -21,7 +22,7 @@ const projects = (await getCollection('projects')).sort(
     title={t(lang, 'projects.title')}
     intro={t(lang, 'projects.intro')}
   />
-  <div class="grid">
+  <Grid columns="auto">
     {
       projects.map(({ id, data }) => (
         <Card
@@ -38,16 +39,10 @@ const projects = (await getCollection('projects')).sort(
         </Card>
       ))
     }
-  </div>
+  </Grid>
 </Section>
 
 <style>
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--grid-gap);
-  }
-
   .date {
     font-family: var(--font-mono);
     font-size: var(--fs-xs);
@@ -58,14 +53,14 @@ const projects = (await getCollection('projects')).sort(
   .title {
     margin: 0;
     font-size: var(--fs-2xl);
-    line-height: 1.25;
-    letter-spacing: -0.015em;
+    line-height: var(--lh-snug);
+    letter-spacing: var(--tracking-tight);
   }
 
   .summary {
     margin: 0;
     font-size: var(--fs-md);
-    line-height: 1.65;
+    line-height: var(--lh-body);
     color: var(--muted);
     text-wrap: pretty;
   }

@@ -1,6 +1,7 @@
 ---
 import { steps } from '../../config/site';
 import { t, type Lang } from '../../i18n/ui';
+import Grid from '../ui/Grid.astro';
 import Section from '../ui/Section.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
 import DiscordBanner from './DiscordBanner.astro';
@@ -18,7 +19,7 @@ const { lang } = Astro.props;
     title={t(lang, 'steps.title')}
     intro={t(lang, 'steps.intro')}
   />
-  <div class="grid">
+  <Grid>
     {
       steps.map(({ number, titleKey, bodyKey }) => (
         <StepCard
@@ -28,14 +29,6 @@ const { lang } = Astro.props;
         />
       ))
     }
-  </div>
+  </Grid>
   <DiscordBanner lang={lang} />
 </Section>
-
-<style>
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-lg), 1fr));
-    gap: var(--grid-gap);
-  }
-</style>
